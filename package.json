@@ -1,23 +1,28 @@
 {
-  "name": "haxe-flixel-template",
-  "version": "0.4.0",
-  "description": "HaxeFlixel game template powered by Lix and Nodejs. The fastest way to start building a HaxeFlixel game.",
-  "main": "index.js",
-  "type": "module",
-  "engines": {
-    "node": ">=16"
-  },
+  "name": "platformer-deathmatch",
+  "version": "1.0.0",
+  "description": "A HaxeFlixel game",
   "scripts": {
-    "build": "lix lime build html5 -minify",
-    "build-hl": "lix lime test hl",
-    "start": "npx -p hf-scripts startup",
-    "dev": "npm run start",
-    "comp-server": "npx -p hf-scripts comp-server"
+    "start": "npx lix lime test html5 -debug",
+    "dev": "npx lix lime test html5 -debug -clean",
+    
+    "build:html5": "npx lix lime build html5 -release",
+    "build:windows": "npx lix lime build windows -release",
+    "build:mac": "npx lix lime build mac -release",
+    "build:linux": "npx lix lime build linux -release",
+    "build:all": "npm run build:html5 && npm run build:windows && npm run build:linux",
+    
+    "test:html5": "npx lix lime test html5 -debug",
+    "test:windows": "npx lix lime test windows -debug",
+    "test:neko": "npx lix lime test neko -debug",
+    
+    "clean": "npx lix lime clean",
+    "serve": "npx http-server Export/html5/bin -c-1 --port 8000",
+    "watch": "npx chokidar \"Source/**/*.hx\" -c \"npm run build:html5\""
   },
-  "dependencies": {
-    "hf-scripts": "^0.5.1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "MIT"
+  "devDependencies": {
+    "chokidar-cli": "^3.0.0",
+    "http-server": "^14.1.1",
+    "lix": "^15.12.0"
+  }
 }
