@@ -7,7 +7,7 @@ class PlayState extends FlxState {
 	override public function create()
 	{
 		super.create();
-		js.Browser.console.log("Hello World wtf man common dfd xdfd 1111");
+		js.Browser.console.log("Hello World!");
 	}
 
 	override public function update(elapsed:Float)
